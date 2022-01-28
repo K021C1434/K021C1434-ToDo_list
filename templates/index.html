@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<h1>ToDoリスト</h1>
+<button onclick="location.href='/create'">📝項目の作成ページ📝</button><br>
+<br>
+
+
+{% for post in posts %}
+ 
+    <h3>{{ post.id }}: {{ post.title }}
+      <button onclick="location.href='/delete/{{ post.id }}'">削除</button>
+      <button onclick="location.href='/detail/{{ post.id }}'">詳細</button>
+      <button onclick="location.href='/update/{{ post.id }}'">更新</button>
+      
+
+    <br>
+    <p>期限 : {{ post.due.date() }}</p>
+
+     
+    </h3>
+{% endfor %}
+{% endblock %}
